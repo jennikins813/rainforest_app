@@ -2,17 +2,19 @@
 
 <p>
 	<strong>Name:</strong>
-	<%= @product[:name] %>
+	<%= @product.name %>
 </p>
 
 <p>
 	<strong>Description:</strong>
-	<%= @product[:description] %>
+	<%= @product.description %>
 </p>
 
 <p>
 	<strong>Price:</strong>
-	<%= @product[:price_in_cents] %>
+	<!--<%= @product.price_in_cents %> -->
+	<!--remove above since we defined formatted_price in the product model that converts the price_in_cents to a price in dollars. see below line-->
+	<%= @product.formatted_price %>
 </p>
 
 
