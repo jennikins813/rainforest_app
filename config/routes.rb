@@ -1,12 +1,19 @@
 Rainforest::Application.routes.draw do
-  #get "users/new"  - auto generated when we created the users_controller.
+  #get "reviews/show"
+  #get "reviews/new"
+  #get "reviews/edit"
+  #get "users/new" 
   #get "users/create"
-  # above 2-3 auto generated when we created the users_controller.
+  # above 'get' auto generated when we created the controllers.
   # not needed since already added resources which specifies which
-  # routes we want created(line 8).
+  # routes we want created(below resources).
   resources :products
   resources :users, :only => [:new, :create]
   resources :sessions, :only => [:new, :create, :destroy]
+  
+  resources :products do
+    resources :reviews, :except =>[:index]
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
